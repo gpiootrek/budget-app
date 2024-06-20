@@ -1,0 +1,13 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title [color]="isExpense ? 'danger' : 'success'">
+      {{ transaction().amount | currency }}
+    </ion-card-title>
+    <ion-card-subtitle>{{ transaction().title }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ transaction().date | date }} |
+    {{ transaction().category.toString() | titlecase }}
+  </ion-card-content>
+</ion-card>

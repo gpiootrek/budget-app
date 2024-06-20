@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Expenses </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Expenses</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid class="ion-padding">
+    <ion-row class="ion-justify-content-center">
+      <ion-button fill="outline" color="danger" (click)="openModal()">
+        <ion-icon name="add-outline"></ion-icon> Add Expense
+      </ion-button>
+    </ion-row>
+    <ion-row>
+      @for (expense of (expenses$ | async); track expense.id){
+      <app-card [transaction]="expense"></app-card>
+      } @empty {
+      <span>No expenses</span>
+      }
+    </ion-row>
+  </ion-grid>
+</ion-content>

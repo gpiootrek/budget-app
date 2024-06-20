@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Add Expense</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [strong]="true" color="success" (click)="add()"
+        >Add</ion-button
+      >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-input
+        labelPlacement="stacked"
+        label="Enter Title"
+        placeholder="Expense Title"
+        [(ngModel)]="title"
+      ></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-input
+        labelPlacement="stacked"
+        label="Enter amount"
+        type="number"
+        min="0"
+        placeholder="Expense Amount"
+        [(ngModel)]="amount"
+      ></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-select label="Choose category" placeholder="Expense Category">
+        @for (category of CATEGORIES; track $index) {
+        <ion-select-option [value]="category">{{
+          category | titlecase
+        }}</ion-select-option>
+        }
+      </ion-select>
+    </ion-row>
+    <ion-row>
+      <ion-datetime presentation="date" [(ngModel)]="date"></ion-datetime>
+    </ion-row>
+  </ion-grid>
+</ion-content>

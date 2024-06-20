@@ -34,7 +34,14 @@
             "prefix": "app",
             "style": "camelCase"
           }
-        ]
+        ],
+        "quotes": [
+          "error",
+          "single"
+        ],
+        "semi": ["error", "always"],
+        "indent": "off",
+        "no-multi-spaces": ["error"]
       }
     },
     {
